@@ -4,6 +4,7 @@ USER root
 WORKDIR /var/www/html
 
 COPY ./Makefile .
+COPY ./docker/bin .
 COPY . .
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
