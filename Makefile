@@ -17,4 +17,5 @@ build:
 	docker-compose up --build
 
 install-magento:
-	docker compose exec app bash -c "echo $(APP_SECURE_URL)"
+#	docker compose exec app bash -c "echo $(APP_SECURE_URL)"
+	docker compose exec app bash -c "/bin/bash /docker/bin/install-magento.sh"
