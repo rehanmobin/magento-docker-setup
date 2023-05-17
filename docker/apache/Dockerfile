@@ -5,6 +5,7 @@ WORKDIR /var/www/html
 
 COPY ./Makefile .
 COPY ./docker/bin /docker/bin
+COPY ./docker/php/php.ini $PHP_INI_DIR/conf.d/php.ini
 COPY . .
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
