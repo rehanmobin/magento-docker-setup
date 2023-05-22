@@ -57,6 +57,7 @@ services:
         SERVER_NAME: ${SERVER_NAME}
     volumes:
       - ./magento/:/var/www/html:rw,cached
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/000-custom.ini
     networks:
       - magento245
     ports:
@@ -69,7 +70,13 @@ services:
       - elasticsearch
     env_file:
       - ./.env
-
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+        - 1025:1025 
+        - 8025:8025 
+    networks:
+      - magento245
 
 
 networks:
