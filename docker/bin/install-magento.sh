@@ -23,7 +23,7 @@ bin/magento setup:install \
 --page-cache=redis \
 --page-cache-redis-server=redis \
 --page-cache-redis-db=2 \
---page-cache-redis-port=6379
+--page-cache-redis-port=6379 \
 --search-engine=elasticsearch7 \
 --elasticsearch-host=${ELASTICSEARCH_HOST} \
 --elasticsearch-port=${ELASTICSEARCH_PORT}

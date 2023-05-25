@@ -1,6 +1,6 @@
 FROM php:8.1-apache
 
-USER root
+#USER root
 WORKDIR /var/www/html
 
 COPY ./Makefile .
@@ -19,6 +19,15 @@ RUN install-php-extensions gd mysqli pdo_mysql zip intl soap sockets bcmath xsl
 
 COPY ./docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN sed -i "s/TBD/$SERVER_NAME/" /etc/apache2/sites-available/000-default.conf
-RUN chown -R www-data:www-data /var/www/html && a2enmod rewrite && a2ensite "*.conf"
+RUN a2enmod rewrite && a2ensite "*.conf"
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Add user
+RUN groupadd -g 1000 app \
+    && useradd -g 1000 -u 1000 -d /var/www -s /bin/bash app
+
+RUN mkdir -p /var/www/html \
+    && chown -R app:app /var/www
+
+USER app:app
