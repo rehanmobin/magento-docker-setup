@@ -12,7 +12,7 @@ services:
       magento245:
         aliases: ["magento245-redis"]
   mysql:
-    image: mysql:8.0
+    image: mysql:${MYSQL_VERSION}
     volumes:
       - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
     environment:
@@ -30,7 +30,7 @@ services:
         aliases: ["magento245-mysql"]
     restart: unless-stopped
   elasticsearch:
-    image: elasticsearch:7.17.6
+    image: elasticsearch:${ELASTICSEARCH_VERSION}
     environment:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
@@ -55,6 +55,7 @@ services:
       dockerfile: ./docker/apache/Dockerfile
       args:
         SERVER_NAME: ${SERVER_NAME}
+        PHP_VERSION: ${PHP_VERSION}
     volumes:
       - ./magento/:/var/www/html:rw,cached
       - ./docker/php/php.ini:/usr/local/etc/php/conf.d/000-custom.ini
