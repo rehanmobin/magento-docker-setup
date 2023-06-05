@@ -1,5 +1,8 @@
 .PHONY: pre-deploy download-magento
 
+include ./.env
+SHELL := /bin/bash
+
 COMPOSER_INSTALL_ARGS ?= --no-dev --no-scripts
 COMPOSER_DUMP_AUTOLOAD_ARGS ?= --optimize
 
@@ -14,6 +17,7 @@ install-composer-deps:
 	docker compose exec app bash -c "composer install $(COMPOSER_INSTALL_ARGS)"
 
 build:
+	sed -i "s/NETWORK_NAME/${PROJECT_NAME}/" ./docker-compose.yaml
 	docker-compose up --build
 
 install-magento:
