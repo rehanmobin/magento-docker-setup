@@ -6,8 +6,28 @@ A light weight configuration to quickly setup fresh open source or community Mag
  Apache | PHP | MYSQL | Elasticsearch | MailHog | Redis
  
 ## Usage
-- Clone this repo or download the files manually.
-- Open `.env` file and update the settings with your preferences.
+**Make sure you have docker and docker-compose installed for your machine.**
+
+1. cd into the project folder, Clone this repo or download the files manually Or use following command to download:
+```
+wget https://github.com/rehanmobin/magento-docker-setup/archive/refs/heads/master.zip && unzip master.zip && mv magento-docker-setup-master/* ./ && rm -rf magento-docker-setup-master/ *.zip
+```
+2. Open `.env` file and update the settings with your preferences.
+3. Add `SERVER_NAME` or site host into your operating system host file.
+  - For windows open `C:\Windows\System32\drivers\etc\hosts` and 
+   add `127.0.0.1 local.foobar.com`.
+  - For Mac osx & Ubuntu open `/etc/hosts` and add `127.0.0.1 local.foobar.com`.
+4. Open current directory in terminal and run `make build`. This step will download all the configured docker images and build the containers.
+  It will take some time to load the dev db for the first time. When you see something like this in your terminal you are ready for the next step:
+
+  ```
+  magento-docker-mailhog-1        | [APIv1] KEEPALIVE /api/v1/events
+  magento-docker-mailhog-1        | [APIv1] KEEPALIVE /api/v1/events
+  ```
+  5. Once you see that's ready, open a new terminal and finish the setup with: **`make setup-magento`**. Please enter repo.magento.com basic auth credentials when prompt.
+
+
+
 	
 | Variable| Description |Example|
 |---	|---	|---	|
