@@ -1,13 +1,9 @@
 # Magento Local Development Environment With Docker
 
 A light weight configuration to quickly setup fresh open source or community Magento2 instance locally on top of docker using Apache2 web server and MYSQL. 
-Stack includes:
- - Apache
- - PHP
- - MYSQL
- - Elasticsearch
- - MailHog
- - Redis
+
+**Stack includes:**
+ Apache | PHP | MYSQL | Elasticsearch | MailHog | Redis
  
 ## Usage
 - Clone this repo or download the files manually.
@@ -20,6 +16,7 @@ Stack includes:
 |   `SERVER_NAME`	|   Server name or Host name|  local.foobar.com \| abc.local 	|
 |   `APP_URL`	|   Project instance url	|  https://local.foobar.com \| https://abc.local 	|
 |   `MYSQL_VERSION`	|   Version of mysql server. Should be compatible with the magento  version	|  `8.0` \| `5.6` 	|
+| `MYSQL_HOST` | mysql server host. Do not change it's value unless you know.| `mysql` |
 |   `MYSQL_DATABASE`	|   mysql database name	|  `magento-db` 	|
 |   `MYSQL_USER`	|  mysql username	|  `magento` 	|
 |   `MYSQL_ROOT_PASSWORD`	|   mysql server root password	|  `magento123` 	|
@@ -33,6 +30,13 @@ Stack includes:
 | `ADMIN_USERNAME` | Magento admin username | `admin` |
 | `ADMIN_PASSWORD` |Magento admin user password  | `admin12345` |
 | `ADMIN_URI_PATH` | Magento admin console path. Should be relative. | `admin` \| `adminconsole` \| `adminhq` |
+| `LANGUAGE` | Magento store language | `en_US` \| `en_UK` |
+| `CURRENCY` | Magento store currency | `USD` \| `INR` |
+| `TIME_ZONE` | Magento store time zone | `America/Chicago` |
+| `ADMIN_USER_FIRSTNAME` | Magento admin user firstname | `foo` \| `matt` |
+| `ADMIN_USER_LASTNAME` | Magento admin user last name | `bar` \| `adam` |
+| `REDIS_HOST` | Redis server host. Do not change it's value unless you know. | `redis` |
+| `REDIS_SERVER_PORT` | Redis server port number.  | `6379`|
 | `a` |  |  |
 
 
