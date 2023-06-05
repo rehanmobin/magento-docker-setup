@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 bin/magento setup:install \
---base-url=${APP_SECURE_URL} \
+--base-url=${APP_URL} \
 --db-host=mysql \
 --db-name=${MYSQL_DATABASE} \
 --db-user=${MYSQL_USER} \
@@ -24,6 +24,6 @@ bin/magento setup:install \
 --page-cache-redis-server=redis \
 --page-cache-redis-db=2 \
 --page-cache-redis-port=6379 \
---search-engine=elasticsearch7 \
+--search-engine=${ELASTICSEARCH_ENGINE} \
 --elasticsearch-host=${ELASTICSEARCH_HOST} \
 --elasticsearch-port=${ELASTICSEARCH_PORT}
