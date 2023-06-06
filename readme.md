@@ -1,6 +1,6 @@
 # Magento Local Development Environment With Docker
 
-A light weight configuration to quickly setup fresh open source or community Magento2 instance locally on top of docker using Apache2 web server and MYSQL. 
+A light weight configuration to quickly setup fresh open source or community Magento2 instance of any available locally on top of docker using Apache2 web server and MYSQL. 
 
 **Stack includes:**
  Apache | PHP | MYSQL | Elasticsearch | MailHog | Redis
