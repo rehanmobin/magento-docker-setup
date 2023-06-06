@@ -60,5 +60,18 @@ wget https://github.com/rehanmobin/magento-docker-setup/archive/refs/heads/maste
 | `a` |  |  |
 
 
+## Quick References
 
+- Once everything is setup, do not run `make build` again.
+- Re starting the Containers: `docker-compose start` or `docker-compose up`
+- Shell access to the magento container: `docker-compose exec app bash` 
+- Shell access to the magento container as root user: `docker-compose exec -u app bash` 
+- View the site at: https://local.foobar.com or what ever your `APP_URL` is 
+- View the admin at: https://local.foobar.com/adminhq or what ever your `ADMIN_URI_PATH` is
 
+## MailHog
+
+This setup comes with Mailhog which is an email testing tool for developers. It will capture all outgoing emails and can be viewed on it's web UI at `localhost:8025` or `APP_URL:8025`
+
+## Self Signed SSL Certificate
+Slef signed ssl cert is also configured generated through openssl. And site can be accessible through `https`.
