@@ -9,7 +9,7 @@ A light weight configuration to quickly setup fresh open source or community Mag
 
  cd into the project folder, clone this repo or download the files manually Or use following command:
  ```
-wget https://github.com/rehanmobin/magento-docker-setup/archive/refs/heads/master.zip && unzip master.zip && mv magento-docker-setup-master/* ./ && rm -rf magento-docker-setup-master/ *.zip
+wget https://github.com/rehanmobin/magento-docker-setup/archive/refs/heads/master.zip && unzip master.zip && mv magento-docker-setup-master/{.[!.],}* ./ && rm -rf magento-docker-setup-master/ *.zip
 ```
  
 ## Usage
