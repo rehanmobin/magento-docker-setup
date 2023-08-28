@@ -17,6 +17,7 @@ install-composer-deps:
 	docker compose exec app bash -c "composer install $(COMPOSER_INSTALL_ARGS)"
 
 build:
+	sed -i "s/magento-project-name/${PROJECT_NAME}/" ./docker-compose.yaml
 	sed -i "s/NETWORK_NAME/${PROJECT_NAME}/" ./docker-compose.yaml
 	docker-compose up --build
 

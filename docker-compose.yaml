@@ -7,7 +7,7 @@ services:
     ports: ["6379:6379"]
     restart: unless-stopped
     networks:
-      - ${PROJECT_NAME}
+      - NETWORK_NAME
   mysql:
     image: mysql:${MYSQL_VERSION}
     volumes:
@@ -21,7 +21,7 @@ services:
     ports:
       - 3306:3306
     networks:
-      - ${PROJECT_NAME}
+      - NETWORK_NAME
     restart: unless-stopped
   elasticsearch:
     image: elasticsearch:${ELASTICSEARCH_VERSION}
@@ -38,7 +38,7 @@ services:
       - "9300:9300"
       - "9200:9200"
     networks:
-      - ${PROJECT_NAME}
+      - NETWORK_NAME
     restart: unless-stopped
   app:
     image: 'magento'
@@ -51,7 +51,7 @@ services:
       - ./magento/:/var/www/html:rw,cached
       - ./docker/php/php.ini:/usr/local/etc/php/conf.d/000-custom.ini
     networks:
-      - ${PROJECT_NAME}
+      - NETWORK_NAME
     ports:
       - 443:443
       - 80:80
@@ -68,9 +68,9 @@ services:
         - 1025:1025 
         - 8025:8025 
     networks:
-      - ${PROJECT_NAME}
+      - NETWORK_NAME
 
 
 networks:
-  magento-project:
+  magento-project-name:
     name: NETWORK_NAME
